@@ -1,4 +1,4 @@
-package com.everis.cards.dao;
+package com.everis.cards.dto;
 
 import lombok.*;
 

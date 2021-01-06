@@ -1,7 +1,7 @@
 package com.everis.cards.service.impl;
 
-import com.everis.cards.dao.Card;
-import com.everis.cards.service.ReniecService;
+import com.everis.cards.dto.Card;
+import com.everis.cards.service.CardsService;
 import io.reactivex.Observable;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ReniecServiceImpl implements ReniecService {
+public class CardsServiceImpl implements CardsService {
     @Override
     public Observable<Card> getCards(String documentNumber) {
         String cardPrefix="111122223333444";

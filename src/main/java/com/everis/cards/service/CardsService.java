@@ -1,9 +1,9 @@
 package com.everis.cards.service;
 
-import com.everis.cards.dao.Card;
+import com.everis.cards.dto.Card;
 import io.reactivex.Observable;
 
 
-public interface ReniecService {
+public interface CardsService {
     Observable<Card> getCards(String documentNumber);
 }
