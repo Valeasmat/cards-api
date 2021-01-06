@@ -1,0 +1,42 @@
+##Deploy
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cards-api
+  labels:
+    app: cards-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cards-api
+  template:
+    metadata:
+      labels:
+        app: cards-api
+    spec:
+      containers:
+        - name: cards-api
+          image: acrvmam03.azurecr.io/cards-api
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      imagePullSecrets:
+        - name: regcred
+---
+##Service
+kind: Service
+apiVersion: v1
+metadata:
+  name: cards-api
+spec:
+  selector:
+    app: cards-api
+  ports:
+    - port: 8833
+      targetPort: 8833
+  type: LoadBalancer
